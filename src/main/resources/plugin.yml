@@ -1,0 +1,7 @@
+name: pManutencao
+version: 1.0
+author: Pedrodcp
+main: Principal.Main
+commands:
+  manutencao:
+    aliases: maintenance

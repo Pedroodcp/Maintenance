@@ -1,0 +1,8 @@
+Config:
+  manutencao-ativada: '&6&l[AVISO] &fA manutenção foi ativada, todos os jogadores serão expulsos.'
+  manutencao-desativada: '&6&l[AVISO] &fA manutenção foi desativada.'
+  mensagem-kick: '&cVoltaremos já!'
+
+Msg-erro:
+  manutencao-ativada: '&cA manutenção já está ativada.'
+  manutencao-desativada: '&cA manutenção já está desativada.'
