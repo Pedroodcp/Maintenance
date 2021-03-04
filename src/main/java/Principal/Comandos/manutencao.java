@@ -1,6 +1,8 @@
 package Principal.Comandos;
 
 import static Principal.Main.*;
+
+import Principal.Eventos.GUI.Inv;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,7 +22,7 @@ public class manutencao implements CommandExecutor {
 
             } else {
                 if (args.length == 0) {
-                    p.sendMessage("§cUtilize /manutencao <on/off/info> para ativar, desativar e verificar a manutenção.");
+                    p.openInventory(new Inv().getInventory());
                 }
                 if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("on")) {
@@ -39,7 +41,7 @@ public class manutencao implements CommandExecutor {
                                     p.sendMessage("");
 
                                 } else {
-                                    all.kickPlayer(getInstance().getConfig().getString("Config.mensagem-kick").replace("&", "§"));
+                                    all.kickPlayer(getInstance().getConfig().getString("Config.mensagem-kick").replace("&", "§").replace("%nl%", "\n"));
                                 }
                             }
                         }
@@ -49,7 +51,6 @@ public class manutencao implements CommandExecutor {
                             Bukkit.broadcastMessage("");
                             Bukkit.broadcastMessage(getInstance().getConfig().getString("Config.manutencao-desativada").replace("&", "§"));
                             Bukkit.broadcastMessage("");
-                            p.setWhitelisted(false);
                             Bukkit.getServer().setWhitelist(false);
                             p.sendMessage("§eA manutenção foi desativada com sucesso.");
                             p.sendMessage("");

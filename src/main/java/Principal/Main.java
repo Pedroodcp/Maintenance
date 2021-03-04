@@ -1,7 +1,10 @@
 package Principal;
 
 import Principal.Comandos.manutencao;
+import Principal.Eventos.GUI.ClickEvent;
+import Principal.Eventos.MOTD;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -13,6 +16,7 @@ public class Main extends JavaPlugin {
         instance = this;
         loadCommands();
         loadConfig();
+        loadEvents();
         Bukkit.getConsoleSender().sendMessage("§a[pManutencao] Plugin ativado com sucesso.");
     }
 
@@ -24,6 +28,12 @@ public class Main extends JavaPlugin {
 
     public void loadCommands() {
         getCommand("manutencao").setExecutor(new manutencao());
+    }
+
+    public void loadEvents() {
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(new MOTD(), this);
+        pm.registerEvents(new ClickEvent(), this);
     }
 
     private void loadConfig() {

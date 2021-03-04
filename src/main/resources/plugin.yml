@@ -1,5 +1,5 @@
 name: pManutencao
-version: 1.0
+version: 2.0
 author: Pedrodcp
 main: Principal.Main
 commands:
