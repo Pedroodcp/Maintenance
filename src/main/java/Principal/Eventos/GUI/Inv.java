@@ -19,7 +19,7 @@ public class Inv {
     }
 
     private void setItens() {
-        ItemStack i1 = new Item(Material.ANVIL, 1, (short) 0)
+        ItemStack i1 = new Item(Material.WOOL, 1, (short) 5)
                 .setName("§aAtivar Manutenção")
                 .setLore(Collections.singletonList("§7Ao clicar, você ativará a manutenção."))
                 .setEnchant(Enchantment.DURABILITY, 1)
@@ -31,7 +31,7 @@ public class Inv {
                 .setLore(Collections.singletonList("§7Verifique o status da manutenção."))
                 .getItemStack();
 
-        ItemStack i3 = new Item(Material.BLAZE_POWDER, 1, (short) 0)
+        ItemStack i3 = new Item(Material.WOOL, 1, (short) 14)
                 .setName("§cDesativar Manutenção")
                 .setLore(Collections.singletonList("§7Ao clicar, você desativará a manutenção."))
                 .setEnchant(Enchantment.DURABILITY, 1)

@@ -1,9 +1,29 @@
+#MOTD: Use %nl% para criar uma nova linha.
+
+#Para adicionar um jogador na manutenção, basta adicioná-lo normalmente na whitelist.
+#/whitelist add <jogador> ; /whitelist remove <jogador>
+
 Config:
   manutencao-ativada: '&6&l[AVISO] &fA manutenção foi ativada, todos os jogadores serão expulsos.'
   manutencao-desativada: '&6&l[AVISO] &fA manutenção foi desativada.'
-  mensagem-kick: '&c&lREDE NETWORK %nl% &cPrecisamos resolver algumas coisas, voltamos já!'
-  MOTD: '&6&lREDE NETWORK %nl% &eEstamos em &cmanutenção&e, voltamos já!'
+  mensagem-kick: '&c&lREDE NETWORK %nl% &cPrecisamos resolver algumas coisas, voltaremos já!'
+  MOTD: '&6&lREDE NETWORK %nl% &eEstamos em &cmanutenção&e, voltaremos já!'
+
+#Msg-erro: Mensagem de erro quando a manutenção já estiver ativada/desativada.
 
 Msg-erro:
   manutencao-ativada: '&cA manutenção já está ativada.'
   manutencao-desativada: '&cA manutenção já está desativada.'
+
+#Msg-info = /manutencao info
+
+Msg-info:
+  manutencao-ativada: '§aAtualmente, a manutenção está ativada.'
+  manutencao-desativada: '§eAtualmente, a manutenção está desativada.'
+
+#MOTD-normal: Config: Utilize 'off' para desativar a MOTD normal ou 'on' para ativar.
+#MOTD-normal: MOTD: Utilize %nl% para criar uma nova linha.
+
+MOTD-normal:
+  config: 'off'
+  MOTD: '&6&lREDE NETWORK %nl% &eEstamos &6&lABERTOS&e! &7Venha jogar conosco!'

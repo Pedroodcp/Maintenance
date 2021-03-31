@@ -9,7 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+
 public class manutencao implements CommandExecutor {
+
+    public static ArrayList<String> manutencao = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender s, Command c, String label, String[] args) {
@@ -26,17 +30,18 @@ public class manutencao implements CommandExecutor {
                 }
                 if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("on")) {
-                        if (Bukkit.getServer().hasWhitelist()) {
+                        if (manutencao.contains("on")) {
                             p.sendMessage(getInstance().getConfig().getString("Msg-erro.manutencao-ativada").replace("&", "§"));
 
                         } else {
                             for (Player all : Bukkit.getOnlinePlayers()) {
                                 if (all.hasPermission("pmanutencao.admin")) {
+                                    all.setWhitelisted(true);
                                     Bukkit.broadcastMessage("");
                                     Bukkit.broadcastMessage(getInstance().getConfig().getString("Config.manutencao-ativada").replace("&", "§"));
                                     Bukkit.broadcastMessage("");
-                                    p.setWhitelisted(true);
-                                    Bukkit.getServer().setWhitelist(true);
+                                    manutencao.clear();
+                                    manutencao.add("on");
                                     p.sendMessage("§eA manutenção foi ativada com sucesso.");
                                     p.sendMessage("");
 
@@ -47,24 +52,25 @@ public class manutencao implements CommandExecutor {
                         }
                     }
                     if (args[0].equalsIgnoreCase("off")) {
-                        if (Bukkit.getServer().hasWhitelist()) {
+                        if (manutencao.contains("off")) {
+                            p.sendMessage(getInstance().getConfig().getString("Msg-erro.manutencao-desativada").replace("&", "§"));
+
+                        } else {
                             Bukkit.broadcastMessage("");
                             Bukkit.broadcastMessage(getInstance().getConfig().getString("Config.manutencao-desativada").replace("&", "§"));
                             Bukkit.broadcastMessage("");
-                            Bukkit.getServer().setWhitelist(false);
+                            manutencao.clear();
+                            manutencao.add("off");
                             p.sendMessage("§eA manutenção foi desativada com sucesso.");
                             p.sendMessage("");
-
-                        } else {
-                            p.sendMessage(getInstance().getConfig().getString("Msg-erro.manutencao-desativada").replace("&", "§"));
                         }
                     }
-                    if (args[0].equals("info")) {
-                        if (Bukkit.getServer().hasWhitelist()) {
-                            p.sendMessage("§aAtualmente, a manutenção está ativada.");
+                    if (args[0].equalsIgnoreCase("info")) {
+                        if (manutencao.contains("on")) {
+                            p.sendMessage(getInstance().getConfig().getString("Msg-info.manutencao-ativada").replace("&", "§"));
 
                         } else {
-                            p.sendMessage("§cAtualmente, a manutenção está desativada.");
+                            p.sendMessage(getInstance().getConfig().getString("Msg-info.manutencao-desativada").replace("&", "§"));
                         }
                     }
                 }

@@ -17,16 +17,20 @@ public class ClickEvent implements Listener {
         ItemStack i = e.getCurrentItem();
         Player p = (Player) e.getWhoClicked();
 
-        if (i.getType() == Material.ANVIL) {
-            p.performCommand("manutencao on");
-            p.closeInventory();
+        if (i.getType() == Material.WOOL) {
+            switch (i.getDurability()) {
+                case 5:
+                    p.performCommand("manutencao on");
+                    p.closeInventory();
+                    return;
+                case 14:
+                    p.performCommand("manutencao off");
+                    p.closeInventory();
+                    return;
+            }
         }
         if (i.getType() == Material.BOOK) {
             p.performCommand("manutencao info");
-            p.closeInventory();
-        }
-        if (i.getType() == Material.BLAZE_POWDER) {
-            p.performCommand("manutencao off");
             p.closeInventory();
         }
     }
