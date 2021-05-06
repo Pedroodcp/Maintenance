@@ -18,8 +18,8 @@ Msg-erro:
 #Msg-info = /manutencao info
 
 Msg-info:
-  manutencao-ativada: '§aAtualmente, a manutenção está ativada.'
-  manutencao-desativada: '§eAtualmente, a manutenção está desativada.'
+  manutencao-ativada: '&aAtualmente, a manutenção está ativada.'
+  manutencao-desativada: '&cAtualmente, a manutenção está desativada.'
 
 #MOTD-normal: Config: Utilize 'off' para desativar a MOTD normal ou 'on' para ativar.
 #MOTD-normal: MOTD: Utilize %nl% para criar uma nova linha.

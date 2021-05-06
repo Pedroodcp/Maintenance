@@ -1,4 +1,4 @@
-package Principal.utils;
+package br.com.pedrodcp.maintenance.utils;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

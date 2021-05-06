@@ -1,6 +1,6 @@
-package Principal.Eventos.GUI;
+package br.com.pedrodcp.maintenance.Eventos.GUI;
 
-import Principal.utils.Item;
+import br.com.pedrodcp.maintenance.utils.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

@@ -1,4 +1,4 @@
-package Principal.Eventos.GUI;
+package br.com.pedrodcp.maintenance.Eventos.GUI;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

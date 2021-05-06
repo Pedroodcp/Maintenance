@@ -1,8 +1,8 @@
-package Principal.Eventos;
+package br.com.pedrodcp.maintenance.Eventos;
 
-import static Principal.Main.*;
-import static Principal.Comandos.manutencao.*;
+import static br.com.pedrodcp.maintenance.Comandos.manutencao.*;
 
+import br.com.pedrodcp.maintenance.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,10 +12,10 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void Join(PlayerJoinEvent e) {
-        if (manutencao.contains("on")) {
+        if (manutencao.manutencao.contains("on")) {
             Player p = e.getPlayer();
             if (!p.isWhitelisted()) {
-                p.kickPlayer(getInstance().getConfig().getString("Config.mensagem-kick").replace("&", "§").replace("%nl%", "\n"));
+                p.kickPlayer(Main.getInstance().getConfig().getString("Config.mensagem-kick").replace("&", "§").replace("%nl%", "\n"));
             }
         }
     }

@@ -1,8 +1,7 @@
-package Principal.Comandos;
+package br.com.pedrodcp.maintenance.Comandos;
 
-import static Principal.Main.*;
-
-import Principal.Eventos.GUI.Inv;
+import br.com.pedrodcp.maintenance.Eventos.GUI.Inv;
+import br.com.pedrodcp.maintenance.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,14 +30,14 @@ public class manutencao implements CommandExecutor {
                 if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("on")) {
                         if (manutencao.contains("on")) {
-                            p.sendMessage(getInstance().getConfig().getString("Msg-erro.manutencao-ativada").replace("&", "§"));
+                            p.sendMessage(Main.getInstance().getConfig().getString("Msg-erro.manutencao-ativada").replace("&", "§"));
 
                         } else {
                             for (Player all : Bukkit.getOnlinePlayers()) {
                                 if (all.hasPermission("pmanutencao.admin")) {
                                     all.setWhitelisted(true);
                                     Bukkit.broadcastMessage("");
-                                    Bukkit.broadcastMessage(getInstance().getConfig().getString("Config.manutencao-ativada").replace("&", "§"));
+                                    Bukkit.broadcastMessage(Main.getInstance().getConfig().getString("Config.manutencao-ativada").replace("&", "§"));
                                     Bukkit.broadcastMessage("");
                                     manutencao.clear();
                                     manutencao.add("on");
@@ -46,18 +45,18 @@ public class manutencao implements CommandExecutor {
                                     p.sendMessage("");
 
                                 } else {
-                                    all.kickPlayer(getInstance().getConfig().getString("Config.mensagem-kick").replace("&", "§").replace("%nl%", "\n"));
+                                    all.kickPlayer(Main.getInstance().getConfig().getString("Config.mensagem-kick").replace("&", "§").replace("%nl%", "\n"));
                                 }
                             }
                         }
                     }
                     if (args[0].equalsIgnoreCase("off")) {
                         if (manutencao.contains("off")) {
-                            p.sendMessage(getInstance().getConfig().getString("Msg-erro.manutencao-desativada").replace("&", "§"));
+                            p.sendMessage(Main.getInstance().getConfig().getString("Msg-erro.manutencao-desativada").replace("&", "§"));
 
                         } else {
                             Bukkit.broadcastMessage("");
-                            Bukkit.broadcastMessage(getInstance().getConfig().getString("Config.manutencao-desativada").replace("&", "§"));
+                            Bukkit.broadcastMessage(Main.getInstance().getConfig().getString("Config.manutencao-desativada").replace("&", "§"));
                             Bukkit.broadcastMessage("");
                             manutencao.clear();
                             manutencao.add("off");
@@ -67,10 +66,10 @@ public class manutencao implements CommandExecutor {
                     }
                     if (args[0].equalsIgnoreCase("info")) {
                         if (manutencao.contains("on")) {
-                            p.sendMessage(getInstance().getConfig().getString("Msg-info.manutencao-ativada").replace("&", "§"));
+                            p.sendMessage(Main.getInstance().getConfig().getString("Msg-info.manutencao-ativada").replace("&", "§"));
 
                         } else {
-                            p.sendMessage(getInstance().getConfig().getString("Msg-info.manutencao-desativada").replace("&", "§"));
+                            p.sendMessage(Main.getInstance().getConfig().getString("Msg-info.manutencao-desativada").replace("&", "§"));
                         }
                     }
                 }
